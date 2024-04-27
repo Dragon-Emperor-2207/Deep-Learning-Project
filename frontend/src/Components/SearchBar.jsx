@@ -4,7 +4,6 @@ import {FaSearch} from 'react-icons/fa'
 export const SearchBar = ({setResults, setInput, input}) => {
 
     const fetchData = (value) => {
-		console.log(value);
       fetch(`http://127.0.0.1:8000/search/?data=${value}`, {
     	method: 'GET',
     	headers: {

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { SearchBar } from './Components/SearchBar';
+import {SearchResultsCards} from './Components/SearchResultsCards';
 import { Card } from './Components/Card';
 
 function App() {
@@ -11,12 +12,8 @@ function App() {
 			<div className="search-bar-container">
 				<SearchBar setResults={setResults} setInput={setInput} input={input}/>
 			</div>
-			<div className='cards-container'>
-				<Card />
-				<Card />
-				<Card />
-				<Card />
-				<Card />
+			<div className='card-area'>
+    			<SearchResultsCards Results={Results} setResults={setResults}/>
 			</div>
 		</div>
   	);

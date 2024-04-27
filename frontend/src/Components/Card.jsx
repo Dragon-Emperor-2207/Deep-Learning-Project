@@ -1,12 +1,12 @@
 import React from 'react'
 
-export const Card = () => {
+export const Card = ({key ,imageUrl, id, seriesName}) => {
+  console.log("Series Name:", seriesName);
     return (
         <div className="card">
-          <img src="card-image.jpg" alt="Card Not Found" />
+          <img className="image" src={imageUrl} alt = {id}></img>
           <div className="card-content">
-            <h2>Card Title</h2>
-            <p>This is the content of the card.</p>
+            <p>{seriesName}</p>
           </div>
         </div>
       );

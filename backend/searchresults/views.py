@@ -24,10 +24,13 @@ def title_id(name):
     res=response.json()
     d = {}
     for i in res['d']:
-        if 'imageUrl' in i['i'].keys():
-            d[i['l']] =  { 'imageUrl': i['i']['imageUrl'], 'id': i['id']}
-        else:
-            d[i['l']] = {'id': i['id']}
+        try:
+            if 'imageUrl' in i['i'].keys():
+                d[i['l']] =  { 'imageUrl': i['i']['imageUrl'], 'id': i['id']}
+            else:
+                d[i['l']] = {'id': i['id']}
+        except:
+            print("Key error")
     return d
 
 def reviews(id):
