@@ -93,3 +93,45 @@
   width: 220px;
   height: 320px;
 }
+
+.summary-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+}
+
+.summary-image {
+  margin-top: 20px;
+  width: 200px; /* Set width of the image */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.summaries {
+  display: flex;
+  justify-content: space-between; /* Evenly distribute items */
+  width: 100%; /* Full width */
+}
+
+.summary-good,
+.summary-bad {
+  flex: 1; /* Each summary takes equal space */
+  text-align: center; /* Center text horizontally */
+  font-size: 16px; /* Example font size */
+  margin: 5px; /* Optional margin */
+}
+
+.summary-adj {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+}
+
+.ol-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+}
+
+ol {
+  margin: 5px 0; /* Optional margin */
+}

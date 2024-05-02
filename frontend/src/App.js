@@ -1,21 +1,16 @@
-import { useState } from 'react';
 import './App.css';
-import { SearchBar } from './Components/SearchBar';
-import {SearchResultsCards} from './Components/SearchResultsCards';
-import { Card } from './Components/Card';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import BrowserRouter
+import Main from './Pages/Main';
+import Summary from './Pages/Summary';
 
 function App() {
-	const [Results, setResults] = useState([]);
-	const [input, setInput] = useState("");
   	return (
-		<div className='App'>
-			<div className="search-bar-container">
-				<SearchBar setResults={setResults} setInput={setInput} input={input}/>
-			</div>
-			<div className='card-area'>
-    			<SearchResultsCards Results={Results} setResults={setResults}/>
-			</div>
-		</div>
+		<Router>
+			<Routes>
+				<Route path='/main' element={<Main />} />
+				<Route path='/summary/*' element={<Summary />} />
+			</Routes>
+		</Router>
   	);
 }
 

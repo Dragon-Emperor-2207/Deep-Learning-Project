@@ -1,15 +1,11 @@
 from django.http import JsonResponse
 from imdb import Cinemagoer
-import json
 import requests
+from summarizer import main
 
 ia = Cinemagoer()
 def search(request):
     param_value = request.GET.get('data')
-    # a = ia.search_movie(param_value, results=7)
-    # movies = {
-    #     movie['title']: movie.movieID for movie in a
-    # }
     movies = title_id(param_value)
     return JsonResponse(movies)
 
@@ -60,3 +56,7 @@ def reviews(id):
             with open('bad_reviews.txt', 'a', encoding='utf-8') as file:
                 x = ':$' + res['reviews'][i]['reviewText']
                 file.write(x)
+
+def summary(request):
+    id = request.GET.get('data')
+    return JsonResponse(main(id))
