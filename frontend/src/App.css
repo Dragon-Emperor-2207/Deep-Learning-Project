@@ -102,28 +102,44 @@
 
 .summary-image {
   margin-top: 20px;
-  width: 200px; /* Set width of the image */
+  width: 250px; /* Set width of the image */
   height: auto; /* Maintain aspect ratio */
+  border: 2px solid #5f5f5f; /* Set border to transparent */
+  border-radius: 10px; /* Optional: Add border radius for rounded corners */
+  margin-bottom: 20px;
 }
 
 .summaries {
   display: flex;
-  justify-content: space-between; /* Evenly distribute items */
-  width: 100%; /* Full width */
+  justify-content: space-between;
+}
+
+.summary-good-block,
+.summary-bad-block {
+  width: 48%; /* Adjust the width as needed */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for depth */
+}
+
+.summary-good-block {
+  background-color: #e5f7ed; /* Example background color for the good summary block */
+}
+
+.summary-bad-block {
+  background-color: #f7e5e5; /* Example background color for the bad summary block */
+}
+
+.summary-good-block h3,
+.summary-bad-block h3 {
+  text-align: center;
+  margin-top: 0;
 }
 
 .summary-good,
 .summary-bad {
-  flex: 1; /* Each summary takes equal space */
-  text-align: center; /* Center text horizontally */
-  font-size: 16px; /* Example font size */
-  margin: 5px; /* Optional margin */
-}
-
-.summary-adj {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center horizontally */
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .ol-container {
@@ -134,4 +150,12 @@
 
 ol {
   margin: 5px 0; /* Optional margin */
+}
+
+.LoadingScreen {
+  background-color: #a9b6a6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Optional: Adjusts the height to the full viewport height */
 }

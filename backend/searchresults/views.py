@@ -26,7 +26,7 @@ def title_id(name):
             else:
                 d[i['l']] = {'id': i['id']}
         except:
-            print("Key error")
+            print(i)
     return d
 
 def reviews(id):

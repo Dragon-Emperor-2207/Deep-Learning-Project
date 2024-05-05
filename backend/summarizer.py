@@ -46,16 +46,17 @@ def main(id):
   summarizer = pipeline("summarization", model="Falconsai/text_summarization")
 
   def summary_generator(text,n):
-
     array= ''
     for i in text:
+      if len(final_summary_bad)>=50 and len(final_summary_good)>=50 and len(sentiment_summary)>=50:
+        break
       summary = summarizer(i, max_length=130, min_length=30, do_sample=False)
       m=summary[0]['summary_text']+ ' '
 
-      if n==1:
+      if n==1 and len(final_summary_good)>=50:
         final_summary_good.append(m)
 
-      elif n==2:
+      elif n==2 and len(final_summary_bad)>=50:
         final_summary_bad.append(m)
 
       else:
@@ -83,7 +84,7 @@ def main(id):
   text3=text3.split(':$')
 
   ls=[]
-
+  print(len(text1))
   summary_generator(text1, 1)
   summary_generator(text2, 2)
   summary_generator(text3, 3)
@@ -125,8 +126,8 @@ def main(id):
   def title(text):
       # Load the model and tokenizer for TensorFlow
       model_name = "t5-base"
-      tokenizer = T5Tokenizer.from_pretrained(model_name)
-      model = TFT5ForConditionalGeneration.from_pretrained(model_name)
+      tokenizer = AutoTokenizer.from_pretrained("fabiochiu/t5-small-medium-title-generation")
+      model = TFAutoModelForSeq2SeqLM.from_pretrained("fabiochiu/t5-small-medium-title-generation")
 
       # Prepare the text input by adding the prefix "summarize: "
       input_text = f"summarize: {text}"
